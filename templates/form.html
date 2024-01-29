@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>乳房腫瘤辨識</title>
+</head>
+<body>
+    <h1>乳房腫瘤辨識</h1>
+    <h2>請選擇一張乳房腫瘤圖片檔上傳，AI模型會協助判讀腫瘤屬性(惡性/良性)</h2>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>
+
