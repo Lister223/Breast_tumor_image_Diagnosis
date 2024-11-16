@@ -1,5 +1,6 @@
-tensorflow-cpu
-numpy
+#python==3.11.0
+tensorflow==2.14.0
+numpy==1.24.2
 flask
 flask_cors
 Pillow
