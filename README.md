@@ -37,3 +37,9 @@ https://www.kaggle.com/datasets/anaselmasry/breast-cancer-dataset/data
 - 主要使用的 Python 套件：
   ```bash
   pip install -r requirements.txt
+   ```
+## !!! **注意**
+model資料可能因lfs限制無法完整下載，
+可至https://drive.google.com/drive/folders/1DdMglPNPIYnar2id33GQ6tqYRMTcFj8L?usp=sharing 
+下載取代model_deployment的model資料夾
+
