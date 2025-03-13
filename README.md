@@ -33,7 +33,6 @@ https://www.kaggle.com/datasets/anaselmasry/breast-cancer-dataset/data
 ## 📦 **環境與依賴**
 請確保你的環境具備以下軟體：
 - Python 3.11
-- TensorFlow 2.14.0
 - Jupyter Notebook / Google Colab
 - 主要使用的 Python 套件：
   ```bash
