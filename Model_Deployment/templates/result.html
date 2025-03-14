@@ -1,19 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <title>Diagnosis Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腫瘤診斷結果</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        h1 {
+            color: #e91e63;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+        }
+        
+        h2 {
+            color: #555;
+            font-size: 1.4em;
+            margin-bottom: 20px;
+        }
+        
+        .result {
+            margin: 30px 0;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        
+        .result.benign {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-left: 5px solid #2e7d32;
+        }
+        
+        .result.malignant {
+            background-color: #fce4ec;
+            color: #c2185b;
+            border-left: 5px solid #c2185b;
+        }
+        
+        .image-container {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            display: inline-block;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            max-height: 400px;
+            border-radius: 5px;
+        }
+        
+        .return-button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        
+        .return-button:hover {
+            background-color: #c2185b;
+        }
+        
+        .diagnosis-info {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border-left: 4px solid #4fc3f7;
+            border-radius: 4px;
+            text-align: left;
+        }
+    </style>
 </head>
-
 <body>
-<h2>The diagnosis result of tumor: {{result}}</h2>
-<img src="data:image/png;base64,{{image_base64}}" alt="Image">
+    <div class="container">
+        <h1>腫瘤診斷結果</h1>
+        
+        <div class="result {{result_class}}">
+            <span>診斷結果：{{result}}</span>
+        </div>
+        
+        <div class="image-container">
+            <img src="data:image/png;base64,{{image_base64}}" alt="腫瘤圖像">
+        </div>
+        
+        <div class="diagnosis-info">
+            <p>此診斷結果僅供參考。</p>
+        </div>
+        
+        <a href="/form" class="return-button">返回上傳頁面</a>
+    </div>
 
-<!-- 新增一個返回按鈕 -->
-<div style="margin-top: 10px;">
-    <a href="/form">
-        <button style="font-size: 15px; padding: 5px 10px;">返回</button>
-    </a>
-</div>
+    <script>
+        // 根據診斷結果動態設置樣式
+        document.addEventListener('DOMContentLoaded', function() {
+            const resultText = '{{result}}';
+            const resultElement = document.querySelector('.result');
+            
+            if (resultText.includes('良性') || resultText.toLowerCase().includes('benign')) {
+                resultElement.classList.add('benign');
+            } else if (resultText.includes('惡性') || resultText.toLowerCase().includes('malignant')) {
+                resultElement.classList.add('malignant');
+            }
+        });
+    </script>
 </body>
 </html>
